@@ -725,17 +725,15 @@ public class MenuController {
         StringBuilder receiptText = new StringBuilder();
         receiptText.append("\n\t\tKapeez Cafe\n")
                 .append("\t\tGroup 6\n")
-                .append("\tSTI College Lucena City\n")
+                .append("\t    STI College Lucena City\n")
                 .append("-------------------------------------------\n")
                 .append("Item:\t\t\t    Price:\n\n");
 
-        // Find the maximum length of item names to determine the width
         int maxItemNameLength = 0;
         for (MenuItem item : cartItems) {
             maxItemNameLength = Math.max(maxItemNameLength, item.getItem().length());
         }
 
-        // Format each item and price with fixed width
         for (MenuItem item : cartItems) {
             String itemName = String.format("%-30s", item.getQuantity() + "x " + item.getItem());
             String price = String.format("₱%d", item.getPrice());

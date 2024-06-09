@@ -36,21 +36,15 @@ public class OrderingSystem extends Application {
                 Parent root = menuLoader.load();
                 Scene menuScene = new Scene(root);
 
-                // Create a new stage for the menu scene
                 Stage menuStage = new Stage();
                 menuStage.setScene(menuScene);
                 menuStage.setTitle("Kapeez Cafe - Menu");
-
-                // Center the menu stage on the screen
                 menuStage.centerOnScreen();
-
-                // Show the menu stage
                 menuStage.show();
 
-                // Close the loading stage
                 stage.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                e.printStackTrace(); //prints why the exception is thrown
             }
         });
 
