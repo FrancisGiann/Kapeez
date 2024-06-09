@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="389.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="535.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/loading.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="165.0" layoutY="32.0" prefHeight="55.0" prefWidth="162.0" text="Kapeez ">
+         <font>
+            <Font name="Cambria Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="308.0" layoutY="32.0" prefHeight="55.0" prefWidth="175.0" text="Cafe" textFill="#6b6767">
+         <font>
+            <Font name="Cambria Bold" size="38.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

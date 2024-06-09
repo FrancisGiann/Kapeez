@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+  <children>
+    <BorderPane prefHeight="200.0" prefWidth="435.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <left>
+        <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" stylesheets="@../style/style.css" BorderPane.alignment="CENTER">
+          <children>
+            <HBox alignment="CENTER" prefHeight="78.0" prefWidth="435.0">
+              <children>
+                <Label prefHeight="60.0" prefWidth="181.0" text="Kapeez" textFill="#878787">
+                  <font>
+                    <Font name="Cambria Bold" size="48.0" />
+                  </font>
+                </Label>
+                <Label layoutX="160.0" layoutY="40.0" text="Cafe" textFill="#878787">
+                  <font>
+                    <Font name="Cambria" size="48.0" />
+                  </font>
+                </Label>
+              </children>
+            </HBox>
+            <Pane prefHeight="88.0" prefWidth="435.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label layoutX="63.0" layoutY="19.0" text="Total: ">
+                           <font>
+                              <Font name="Cambria Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="total" alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="16.0" prefHeight="49.0" prefWidth="141.0" text="₱0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Cambria Bold" size="40.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+            <VBox alignment="TOP_CENTER" prefHeight="678.0" prefWidth="334.0" styleClass="chosen-item" stylesheets="@../style/style.css">
+              <VBox.margin>
+                <Insets left="50.0" right="50.0" />
+              </VBox.margin>
+                     <children>
+                        <TabPane fx:id="tab" prefHeight="384.0" prefWidth="331.0" styleClass="chosen-item" stylesheets="@../style/style.css" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Cart">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="menuItems" layoutX="4.0" layoutY="2.0" prefHeight="352.0" prefWidth="326.0" styleClass="chosen-item" stylesheets="@../style/style.css" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Receipt">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="receipt" editable="false" layoutY="1.0" prefHeight="354.0" prefWidth="333.0" styleClass="chosen-item" stylesheets="@../style/style.css">
+                                             <font>
+                                                <Font name="Courier New" size="12.0" />
+                                             </font></TextArea>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </TabPane>
+                        <Button fx:id="remove" mnemonicParsing="false" styleClass="removeButton" stylesheets="@../style/style.css" text="remove">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Pane prefHeight="47.0" prefWidth="334.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="2.0" text="Cash:">
+                                 <font>
+                                    <Font name="Cambria Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="cash" layoutX="179.0" layoutY="5.0" prefHeight="38.0" prefWidth="150.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <HBox prefHeight="58.0" prefWidth="334.0" stylesheets="@../style/style.css">
+                           <children>
+                              <Button fx:id="purchase" mnemonicParsing="false" prefHeight="55.0" prefWidth="113.0" styleClass="purchase" stylesheets="@../style/style.css" text="Purchase">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="25.0" right="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="reset" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="113.0" stylesheets="@../style/style.css" text="Reset">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" right="20.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="exitbutton" />
+                                    <String fx:value="removeButton" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="492.0" prefHeight="58.0" prefWidth="334.0" stylesheets="@../style/style.css">
+                           <children>
+                              <Button fx:id="print" mnemonicParsing="false" prefHeight="55.0" prefWidth="113.0" styleClass="purchase" stylesheets="@../style/style.css" text="Print">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="25.0" right="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="exit" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="113.0" stylesheets="@../style/style.css" text="Exit">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" right="20.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="exitbutton" />
+                                    <String fx:value="removeButton" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+            </VBox>
+            <Pane layoutX="10.0" layoutY="186.0" prefHeight="50.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
+          </children>
+        </VBox>
+      </left>
+      <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+          <children>
+            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+              <VBox.margin>
+                <Insets left="20.0" right="20.0" />
+              </VBox.margin>
+              <children>
+                <Pane prefHeight="66.0" prefWidth="210.0" HBox.hgrow="ALWAYS" />
+                <Label contentDisplay="CENTER" prefHeight="60.0" prefWidth="135.0" text="Coffees" textFill="#878787">
+                  <font>
+                    <Font name="System Bold" size="36.0" />
+                  </font>
+                </Label>
+                <Pane prefHeight="66.0" prefWidth="211.0" HBox.hgrow="ALWAYS" />
+              </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="709.0">
+              <children>
+                <Pane prefHeight="100.0" prefWidth="33.0" HBox.hgrow="ALWAYS" />
+                <HBox prefHeight="100.0" prefWidth="370.0" styleClass="ad" stylesheets="@../style/style.css">
+                  <children>
+                    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="288.0" styleClass="ad">
+                      <children>
+                        <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="272.0" text="100% real Coffee beans" textFill="#878787">
+                          <font>
+                            <Font name="Cambria Bold" size="24.0" />
+                          </font>
+                        </Label>
+                      </children>
+                      <HBox.margin>
+                        <Insets />
+                      </HBox.margin>
+                    </VBox>
+                    <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../images/beans.png" />
+                      </image>
+                      <HBox.margin>
+                        <Insets right="10.0" top="10.0" />
+                      </HBox.margin>
+                    </ImageView>
+                  </children>
+                  <HBox.margin>
+                    <Insets bottom="10.0" />
+                  </HBox.margin>
+                </HBox>
+                <Pane prefHeight="100.0" prefWidth="70.0" HBox.hgrow="ALWAYS" />
+                <HBox layoutX="30.0" layoutY="10.0" prefHeight="100.0" prefWidth="387.0" styleClass="ad" stylesheets="@../style/style.css">
+                  <children>
+                    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="292.0" styleClass="ad1">
+                      <children>
+                        <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="298.0" text="It's more than just Coffee" textFill="#878787">
+                          <font>
+                            <Font name="Cambria Bold" size="24.0" />
+                          </font>
+                        </Label>
+                      </children>
+                      <HBox.margin>
+                        <Insets />
+                      </HBox.margin>
+                    </VBox>
+                    <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../images/Heart.png" />
+                      </image>
+                      <HBox.margin>
+                        <Insets right="10.0" top="10.0" />
+                      </HBox.margin>
+                    </ImageView>
+                  </children>
+                  <HBox.margin>
+                    <Insets bottom="10.0" />
+                  </HBox.margin>
+                </HBox>
+                <Pane prefHeight="100.0" prefWidth="35.0" HBox.hgrow="ALWAYS" />
+              </children>
+              <VBox.margin>
+                <Insets top="10.0" />
+              </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <children>
+                <ScrollPane prefHeight="634.0" prefWidth="803.0" styleClass="transparent" stylesheets="@../style/style.css">
+                           <content>
+                              <GridPane prefHeight="1016.0" prefWidth="766.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/style.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="46.0" prefWidth="166.0" text="Americano" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="itemPrice1" text="₱ 100" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="145.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/Americano.png" />
+                                             </image>
+                                          </ImageView>
+                                          <HBox alignment="CENTER" prefHeight="46.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="39.0" prefWidth="112.0" text="Size">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="itemSize1" prefHeight="26.0" prefWidth="118.0" promptText="Small" styleClass="comboBox" stylesheets="@../style/style.css" visibleRowCount="3" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="36.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="36.0" prefWidth="157.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="itemQuantity1" prefHeight="26.0" prefWidth="66.0" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="addItem1" mnemonicParsing="false" onAction="#addItem1Action" styleClass="add" stylesheets="@../style/style.css" text="Add to cart">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="chosen-item" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                                       </GridPane.margin>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="200.0" prefWidth="235.0" stylesheets="@../style/style.css" GridPane.columnIndex="1">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="46.0" prefWidth="166.0" text="Capuccino" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="itemPrice2" text="₱ 115" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="145.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/Capuccino.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="35.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="214.0">
+                                             <children>
+                                                <Label prefHeight="39.0" prefWidth="112.0" text="Size">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="itemSize2" prefHeight="26.0" prefWidth="118.0" promptText="Small" styleClass="comboBox" stylesheets="@../style/style.css" visibleRowCount="3" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="36.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="36.0" prefWidth="157.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="itemQuantity2" prefHeight="26.0" prefWidth="66.0" stylesheets="@../style/style.css" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="addItem2" mnemonicParsing="false" onAction="#addItem2Action" styleClass="add" stylesheets="@../style/style.css" text="Add to cart">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="chosen-item" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                                       </GridPane.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="276.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/style.css" GridPane.columnIndex="2">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="46.0" prefWidth="166.0" text="Espresso" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="itemPrice3" text="₱ 115" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="145.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/Espresso.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="35.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="214.0">
+                                             <children>
+                                                <Label prefHeight="39.0" prefWidth="112.0" text="Size">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="itemSize3" prefHeight="26.0" prefWidth="118.0" promptText="Small" styleClass="comboBox" stylesheets="@../style/style.css" visibleRowCount="3" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="36.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="36.0" prefWidth="157.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="itemQuantity3" prefHeight="26.0" prefWidth="66.0" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="addItem3" mnemonicParsing="false" onAction="#addItem3Action" styleClass="add" stylesheets="@../style/style.css" text="Add to cart">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="chosen-item" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                                       </GridPane.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="276.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/style.css" GridPane.rowIndex="2">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="46.0" prefWidth="156.0" text="Caffe Latte" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="itemPrice7" text="₱ 110" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="145.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/Caffe%20Latte.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="35.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="214.0">
+                                             <children>
+                                                <Label prefHeight="39.0" prefWidth="112.0" text="Size">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="itemSize7" prefHeight="26.0" prefWidth="118.0" promptText="Small" styleClass="comboBox" stylesheets="@../style/style.css" visibleRowCount="3" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="36.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="36.0" prefWidth="157.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="itemQuantity7" prefHeight="26.0" prefWidth="66.0" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="addItem7" mnemonicParsing="false" onAction="#addItem7Action" styleClass="add" stylesheets="@../style/style.css" text="Add to cart">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="chosen-item" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <opaqueInsets>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </opaqueInsets>
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="20.0" layoutY="351.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/style.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="46.0" prefWidth="166.0" text="White Mocha" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="itemPrice8" text="₱ 120" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="103.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/WhiteMocha.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" top="20.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="214.0">
+                                             <children>
+                                                <Label prefHeight="39.0" prefWidth="112.0" text="Size">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="itemSize8" prefHeight="26.0" prefWidth="118.0" promptText="Small" styleClass="comboBox" stylesheets="@../style/style.css" visibleRowCount="3" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="36.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="36.0" prefWidth="157.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="itemQuantity8" prefHeight="26.0" prefWidth="66.0" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="addItem8" mnemonicParsing="false" onAction="#addItem8Action" styleClass="add" stylesheets="@../style/style.css" text="Add to cart">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="chosen-item" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" />
+                                       </padding>
+                                       <opaqueInsets>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </opaqueInsets>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" right="10.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="276.0" layoutY="351.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/style.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="46.0" prefWidth="165.0" text="Spanish Latte" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="itemPrice6" text="₱ 110" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="103.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/Spanish%20Latte.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" top="20.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="214.0">
+                                             <children>
+                                                <Label prefHeight="39.0" prefWidth="112.0" text="Size">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="itemSize6" prefHeight="26.0" prefWidth="118.0" promptText="Small" styleClass="comboBox" stylesheets="@../style/style.css" visibleRowCount="3" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="36.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="36.0" prefWidth="157.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="itemQuantity6" prefHeight="26.0" prefWidth="66.0" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="addItem6" mnemonicParsing="false" onAction="#addItem6Action" stylesheets="@../style/style.css" text="Add to cart">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="add" />
+                                                <String fx:value="button" />
+                                             </styleClass>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="chosen-item" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" />
+                                       </padding>
+                                       <opaqueInsets>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </opaqueInsets>
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="532.0" layoutY="20.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/style.css" GridPane.rowIndex="1">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="46.0" prefWidth="166.0" text="Matcha Latte" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="itemPrice4" text="₱ 110" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="119.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/Matcha%20Latte.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="214.0">
+                                             <children>
+                                                <Label prefHeight="39.0" prefWidth="112.0" text="Size">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="itemSize4" prefHeight="26.0" prefWidth="118.0" promptText="Small" styleClass="comboBox" stylesheets="@../style/style.css" visibleRowCount="3" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="36.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="36.0" prefWidth="157.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="itemQuantity4" prefHeight="26.0" prefWidth="66.0" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="addItem4" mnemonicParsing="false" onAction="#addItem4Action" stylesheets="@../style/style.css" text="Add to cart">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="add" />
+                                                <String fx:value="button" />
+                                             </styleClass>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="chosen-item" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="20.0" layoutY="351.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="46.0" prefWidth="166.0" text="Hot Choco" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="itemPrice5" text="₱ 110" textFill="#878787">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="115.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/HotChoco.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="35.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="214.0">
+                                             <children>
+                                                <Label prefHeight="39.0" prefWidth="112.0" text="Size">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ComboBox fx:id="itemSize5" prefHeight="26.0" prefWidth="118.0" promptText="Small" styleClass="comboBox" stylesheets="@../style/style.css" visibleRowCount="3" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="36.0" prefWidth="256.0">
+                                             <children>
+                                                <Label prefHeight="36.0" prefWidth="157.0" text="Quantity">
+                                                   <font>
+                                                      <Font name="Cambria Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Spinner fx:id="itemQuantity5" prefHeight="26.0" prefWidth="66.0" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="addItem5" mnemonicParsing="false" onAction="#addItem5Action" stylesheets="@../style/style.css" text="Add to cart">
+                                             <font>
+                                                <Font name="Cambria Bold" size="14.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="add" />
+                                                <String fx:value="button" />
+                                             </styleClass>
+                                          </Button>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="chosen-item" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </VBox>
+                                 </children>
+                              </GridPane>
+                           </content>
+                </ScrollPane>
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>
