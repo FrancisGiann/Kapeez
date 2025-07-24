@@ -1,22 +1,30 @@
-# ☕ Kapeez - Cafe Ordering System (JavaFX)
+# ☕ Kapeez - Cafe Ordering System
 
-**Kapeez** is a simple cafe ordering system built using **JavaFX**.  
-It was the updated version of my cafe ordering system as part of our programming course to simulate a real-world coffee shop experience.
+## Project Overview  
+Kapeez is a desktop-based cafe ordering system made using JavaFX. It features an ordering interface, receipt view, and splash screen. The project simulates a small point-of-sale system for a coffee shop.
 
-Users can select drinks, view their orders, and generate a digital receipt.
-
----
-
-## 📸 Screenshots
-
-### ⏳ Loading Screen  
-Splash screen while the app initializes.  
+### 📸 Screenshots
+**Loading Screen**  
 ![Loading Screen](Screenshots/Loading%20screen.png)
 
-### 🖥️ Main Interface  
-Where customers choose coffee and other items.  
+**Main Interface**  
 ![Main Screen](Screenshots/main%20screen.png)
 
-### 🧾 Receipt View  
-Receipt display showing all selected items and the total amount.  
+**Receipt View**  
 ![Receipt](Screenshots/receipt.png)
+
+## Key Features
+- **Loading Screen:** Splash screen during app startup.
+- **Ordering System:** Add menu items and auto-calculate total.
+- **Receipt Generation:** Dynamic receipt showing itemized list.
+- **UI/UX:** JavaFX layout with Scene Builder integration.
+- **Scene Switching:** Clean transitions between views.
+
+## Collaboration
+Developed individually as a school project.
+
+## Technologies Used
+- JavaFX
+- Java
+- Scene Builder (FXML)
+- Git
