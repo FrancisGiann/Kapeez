@@ -1,7 +1,7 @@
 # ☕ Kapeez - Cafe Ordering System (JavaFX)
 
 **Kapeez** is a simple cafe ordering system built using **JavaFX**.  
-It was created as part of our programming course to simulate a real-world coffee shop experience.
+It was the updated version of my cafe ordering system as part of our programming course to simulate a real-world coffee shop experience.
 
 Users can select drinks, view their orders, and generate a digital receipt.
 
