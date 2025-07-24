@@ -124,7 +124,7 @@ public class MenuController {
             }
 
             int existingIndex = findExistingItem(item + " (" + size + ")");
-            if (existingIndex == -1) {
+           if (existingIndex == -1) {
                 MenuItem newItem = new MenuItem(qty, item + " (" + size + ")", price * qty);
                 cartItems.add(newItem);
             } else {
@@ -136,6 +136,7 @@ public class MenuController {
             updateTotal();
             itemQuantity1.getValueFactory().setValue(0);
             menuItems.refresh();
+            itemSize1.setValue("Small");
         } else {
             showAlert("Please select a size and enter a valid quantity!");
         }
@@ -173,6 +174,7 @@ public class MenuController {
             updateTotal();
             itemQuantity2.getValueFactory().setValue(0);
             menuItems.refresh();
+            itemSize2.setValue("Small");
         } else {
             showAlert("Please select a size and enter a valid quantity!");
         }
@@ -210,6 +212,7 @@ public class MenuController {
             updateTotal();
             itemQuantity3.getValueFactory().setValue(0);
             menuItems.refresh();
+            itemSize3.setValue("Small");
         } else {
             showAlert("Please select a size and enter a valid quantity!");
         }
@@ -247,6 +250,7 @@ public class MenuController {
             updateTotal();
             itemQuantity4.getValueFactory().setValue(0);
             menuItems.refresh();
+            itemSize4.setValue("Small");
         } else {
             showAlert("Please select a size and enter a valid quantity!");
         }
@@ -284,6 +288,7 @@ public class MenuController {
             updateTotal();
             itemQuantity5.getValueFactory().setValue(0);
             menuItems.refresh();
+            itemSize5.setValue("Small");
         } else {
             showAlert("Please select a size and enter a valid quantity!");
         }
@@ -321,6 +326,7 @@ public class MenuController {
             updateTotal();
             itemQuantity6.getValueFactory().setValue(0);
             menuItems.refresh();
+            itemSize6.setValue("Small");
         } else {
             showAlert("Please select a size and enter a valid quantity!");
         }
@@ -358,6 +364,7 @@ public class MenuController {
             updateTotal();
             itemQuantity7.getValueFactory().setValue(0);
             menuItems.refresh();
+            itemSize7.setValue("Small");
         } else {
             showAlert("Please select a size and enter a valid quantity!");
         }
@@ -395,6 +402,7 @@ public class MenuController {
             updateTotal();
             itemQuantity8.getValueFactory().setValue(0);
             menuItems.refresh();
+            itemSize8.setValue("Small");
         } else {
             showAlert("Please select a size and enter a valid quantity!");
         }
@@ -629,6 +637,8 @@ public class MenuController {
             tab.getSelectionModel().select(0);
             purchase.setDisable(false);
             cash.setDisable(false);
+            receipt.setText("");
+
         });
 
         purchase.setOnAction(event -> {
@@ -647,7 +657,7 @@ public class MenuController {
                         showAlert("Insufficient cash!");
                     }
                 } catch (NumberFormatException e) {
-                    showAlert("Invalid cash amount!");
+                    showAlert("Invalid cash value!");
                 }
             } else {
                 showAlert("Cart is empty!");
@@ -723,11 +733,11 @@ public class MenuController {
 
     private String generateReceipt(int totalCost, int cashAmount, int change) {
         StringBuilder receiptText = new StringBuilder();
-        receiptText.append("\n\t\tKapeez Cafe\n")
-                .append("\t\tGroup 6\n")
+        receiptText.append("\n\t\t Kapeez Cafe\n")
+                .append("\t\t   Group 6\n")
                 .append("\t    STI College Lucena City\n")
                 .append("-------------------------------------------\n")
-                .append("Item:\t\t\t    Price:\n\n");
+                .append("Item:\t\t\t\t       Price:\n\n");
 
         int maxItemNameLength = 0;
         for (MenuItem item : cartItems) {
@@ -736,14 +746,14 @@ public class MenuController {
 
         for (MenuItem item : cartItems) {
             String itemName = String.format("%-30s", item.getQuantity() + "x " + item.getItem());
-            String price = String.format("₱%d", item.getPrice());
+            String price = String.format("\t\t₱%d", item.getPrice());
             receiptText.append(itemName).append(price).append("\n");
         }
 
         receiptText.append("\n-------------------------------------------\n")
-                .append("Total:\t\t\t    ₱").append(totalCost).append("\n")
-                .append("Cash:\t\t\t    ₱").append(cashAmount).append("\n\n")
-                .append("Change:\t\t\t    ₱").append(change).append("\n")
+                .append("Total:\t\t\t\t\t₱").append(totalCost).append("\n")
+                .append("Cash:\t\t\t\t\t₱").append(cashAmount).append("\n\n")
+                .append("Change:\t\t\t\t\t₱").append(change).append("\n")
                 .append("-----------Thanks for Purchasing------------\n");
 
         return receiptText.toString();
